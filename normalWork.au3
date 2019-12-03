@@ -17,10 +17,11 @@ Local $workType
 
 $startT = "8:30"
 $endT = "16:00"
-$prjName = "Phd peder"
-$workType = "Nor"
+$prjName = "Phd peder juhl legatet"
+$workType = "Norm"
 
 WinActivate("SmartTID Panel")
+WinWaitActive("SmartTID Panel", "", 3)
 
 ControlClick("SmartTID Panel", "", "Tilføj tid")
 WinWaitActive("Select date", "", 10)
@@ -31,17 +32,19 @@ $status = 0
 While $status = 0
    If WinActive("SmartTID Panel") = 0 Then
 	  WinActivate("SmartTID Panel")
+	  ConsoleWrite(" stat=a0 ")
    Else
 	  $status = 1
    EndIf
 WEnd
-
+Sleep(1000)
 
 
 
 
 ControlClick("SmartTID Panel", "", "Ret tid")
-If WinWaitActive("Ret tid", "", 5) = 0 Then Exit
+ConsoleWrite("c")
+If WinWaitActive("Ret tid", "", 3) = 0 Then Exit
 
 Send($startT)
 Send("{TAB}")
@@ -52,11 +55,12 @@ $status = 0
 While $status = 0
    If WinActive("SmartTID Panel") = 0 Then
 	  WinActivate("SmartTID Panel")
+	  ConsoleWrite(" stat=b0 ")
    Else
 	  $status = 1
    EndIf
 WEnd
-
+Sleep(1000)
 
 ControlClick("SmartTID Panel", "", "Jobkladde")
 Sleep(1000)
@@ -68,6 +72,7 @@ $status = 0
 While $status = 0
    If WinActive("Job journal") = 0 Then
 	  WinActivate("Job journal")
+	  ConsoleWrite(" stat=c0 ")
    Else
 	  $status = 1
    EndIf
@@ -103,6 +108,7 @@ $status = 0
 While $status = 0
    If WinActive("SmartTID Panel") = 0 Then
 	  WinActivate("SmartTID Panel")
+	  ConsoleWrite(" stat=d0 ")
    Else
 	  $status = 1
    EndIf
