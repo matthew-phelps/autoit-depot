@@ -24,7 +24,7 @@ Local $dateControl = "[CLASS:WindowsForms10.EDIT.app.0.13965fa_r6_ad1]"
 $startT = "8:30"
 $endT = "16:00"
 $prjName = "Phd peder juhl legatet"
-$workType = "Norm"
+$workType = "omsor"
 
 WinActivate("SmartTID Panel")
 WinWaitActive("SmartTID Panel", "", 3)
@@ -60,6 +60,9 @@ If WinWaitActive("Ret tid", "", 3) = 0 Then Exit
 Send($startT)
 Send("{TAB}")
 Send($endT)
+Send("{TAB}")
+Send($workType)
+Send("{ENTER}")
 Send("{ENTER}")
 
 $status = 0
